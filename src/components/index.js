@@ -5,3 +5,4 @@ export { default as TopCharts } from "./TopCharts";
 export { default as NewRelease } from "./NewRelease";
 export { default as Popular } from "./Popular";
 export { default as Footer } from "./Footer";
+export { default as Collection } from "./Collection";
