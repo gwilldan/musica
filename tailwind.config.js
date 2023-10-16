@@ -7,6 +7,7 @@ export default {
 				dimWhite: "rgba(255, 255, 255, 0.25)",
 				mainWhite: "rgb(255, 255, 255)",
 				mainDark: "rgb(29, 33, 35)",
+				dimDark: "#1A1E1F",
 				mainYellow: "rgb(250, 205, 102)",
 				mainGreen: "rgb(96, 158, 175)",
 			},

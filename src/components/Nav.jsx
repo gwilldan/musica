@@ -3,19 +3,9 @@ import DataContext from "../context/DataContext";
 import { motion } from "framer-motion";
 import { IoClose } from "react-icons/io5";
 import { links } from "./constants/Links";
-import { useNavigate } from "react-router-dom";
 
 const Nav = () => {
-	const { toggle, setToggle, linkID, setLinkID } = useContext(DataContext);
-
-	const navigate = useNavigate();
-
-	const click = (id, url) => {
-		navigate(url);
-		setLinkID(id);
-		const idData = sessionStorage.setItem("idData", id);
-		setToggle(false);
-	};
+	const { toggle, setToggle, linkID, click } = useContext(DataContext);
 
 	return (
 		<motion.nav

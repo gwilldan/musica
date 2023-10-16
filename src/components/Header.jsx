@@ -10,7 +10,7 @@ const Header = () => {
 	const { setToggle } = useContext(DataContext);
 
 	return (
-		<header className=" flex items-center py-6 lg:py-8 gap-4">
+		<header className=" flex items-center py-6 lg:py-8 gap-8">
 			<Nav />
 			<HiOutlineMenuAlt4
 				className=" text-2xl md:hidden"
@@ -22,8 +22,13 @@ const Header = () => {
 				alt="logo"
 				height="24px"
 			/>
-			<div className=" flex-grow-[1] flex items-center justify-end">
+			<div className=" flex-grow-[1] flex items-center justify-end lg:justify-normal gap-5">
 				<LuSearch className="text-3xl text-dimWhite " />
+				<input
+					type="search"
+					className="bg-mainDark text-dimWhite focus:outline-none hidden lg:block w-full placeholder:text-dimWhite font-semibold text-lg"
+					placeholder=" Search song or Artist"
+				/>
 			</div>
 		</header>
 	);

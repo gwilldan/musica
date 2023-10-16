@@ -1,12 +1,22 @@
 import { createContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const DataContext = createContext({});
 
 export const DataProvider = ({ children }) => {
+	const navigate = useNavigate();
+
 	const [toggle, setToggle] = useState(false);
 	const [linkID, setLinkID] = useState(
 		sessionStorage.getItem("idData") ? sessionStorage.getItem("idData") : 1
 	);
+
+	const click = (id, url) => {
+		navigate(url);
+		setLinkID(id);
+		const idData = sessionStorage.setItem("idData", id);
+		setToggle(false);
+	};
 
 	return (
 		<DataContext.Provider
@@ -15,6 +25,7 @@ export const DataProvider = ({ children }) => {
 				setToggle,
 				linkID,
 				setLinkID,
+				click,
 			}}>
 			{children}
 		</DataContext.Provider>
