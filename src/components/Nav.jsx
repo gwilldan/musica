@@ -13,6 +13,7 @@ const Nav = () => {
 	const click = (id, url) => {
 		navigate(url);
 		setLinkID(id);
+		const idData = sessionStorage.setItem("idData", id);
 		setToggle(false);
 	};
 
@@ -20,7 +21,7 @@ const Nav = () => {
 		<motion.nav
 			className={` ${
 				toggle ? "absolute" : "hidden"
-			} bg-mainDark p-6 h-full w-full top-0 left-0 md:hidden `}>
+			} bg-mainDark p-6 h-full w-full top-0 left-0 md:hidden z-10`}>
 			<div className="flex items-center justify-end">
 				<IoClose
 					className=" text-3xl"
