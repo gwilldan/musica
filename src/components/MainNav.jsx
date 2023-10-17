@@ -7,17 +7,18 @@ const MainNav = () => {
 	const { linkID, click } = useContext(DataContext);
 
 	return (
-		<ul className=" hidden w-[50px] lg:flex px-4 py-8 flex-col items-center lg:bg-dimDark text-dimWhite gap-10 rounded-t-full rounded-b-full">
+		<ul className=" hidden h-fit w-[50px] lg:flex px-4 py-8 flex-col items-center lg:bg-dimDark text-dimWhite gap-10 rounded-t-full rounded-b-full">
 			{links.map((i) => (
 				<li
 					type="button"
 					onClick={() => click(i.id, i.url)}
 					key={i.id}
-					className={` ${linkID == i.id && "text-mainYellow"} text-2xl `}>
+					className={` ${
+						linkID == i.id && "text-mainYellow"
+					} text-2xl cursor-pointer `}>
 					{i.icon}
 				</li>
 			))}
-			MAIN NAV
 		</ul>
 	);
 };

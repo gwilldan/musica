@@ -25,7 +25,7 @@ const Nav = () => {
 						key={i.id}
 						type="button"
 						onClick={() => click(i.id, i.url)}
-						className=" w-max flex items-center gap-7">
+						className=" w-max flex items-center cursor-pointer gap-7">
 						<div className={` ${linkID == i.id && "text-mainYellow"} text-2xl`}>
 							{i.icon}
 						</div>

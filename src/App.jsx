@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Display, Header, MainNav, NewRelease } from "./components";
+import { Header, MainNav, Footer } from "./components";
 import { DataProvider } from "./context/DataContext";
 import { Home, Collection, TopCharts } from "./pages";
 
@@ -7,7 +7,7 @@ function App() {
 	return (
 		<Router>
 			<DataProvider>
-				<div className=" px-6 lg:px-[100px]">
+				<div className=" px-6 lg:px-[100px] no-scrollbar">
 					<Header />
 					<main className=" lg:flex gap-5">
 						<MainNav />
@@ -22,6 +22,7 @@ function App() {
 						</section>
 					</main>
 				</div>
+				<Footer />
 			</DataProvider>
 		</Router>
 	);

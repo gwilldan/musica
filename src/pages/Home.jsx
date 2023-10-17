@@ -1,10 +1,13 @@
 import React from "react";
-import { Display } from "../components";
+import { Display, TopCharts } from "../components";
 
 const Home = () => {
 	return (
-		<div>
-			<Display />
+		<div className="">
+			<main className=" lg:flex lg:gap-10">
+				<Display />
+				<TopCharts />
+			</main>
 		</div>
 	);
 };

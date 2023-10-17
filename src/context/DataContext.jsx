@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -10,6 +11,12 @@ export const DataProvider = ({ children }) => {
 	const [linkID, setLinkID] = useState(
 		sessionStorage.getItem("idData") ? sessionStorage.getItem("idData") : 1
 	);
+
+	useEffect(() => {
+		toggle
+			? (document.body.style.overflow = "hidden")
+			: (document.body.style.overflow = "auto");
+	}, [toggle]);
 
 	const click = (id, url) => {
 		navigate(url);
