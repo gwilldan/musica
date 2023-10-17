@@ -13,7 +13,6 @@ function App() {
 						<MainNav />
 						<section className=" flex-1">
 							<Routes>
-								{/* <Display /> */}
 								<Route
 									element={<Home />}
 									path="/"

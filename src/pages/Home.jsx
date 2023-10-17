@@ -4,7 +4,7 @@ import { Display, TopCharts } from "../components";
 const Home = () => {
 	return (
 		<div className=" ">
-			<main className=" lg:flex lg:gap-10">
+			<main className=" lg:flex lg:gap-10 lg:h-[375px]">
 				<Display />
 				<TopCharts />
 			</main>

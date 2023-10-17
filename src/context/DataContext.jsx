@@ -7,6 +7,7 @@ const DataContext = createContext({});
 export const DataProvider = ({ children }) => {
 	const navigate = useNavigate();
 
+	const [favToggle, setFavToggle] = useState(false);
 	const [toggle, setToggle] = useState(false);
 	const [linkID, setLinkID] = useState(
 		sessionStorage.getItem("idData") ? sessionStorage.getItem("idData") : 1
@@ -25,6 +26,10 @@ export const DataProvider = ({ children }) => {
 		setToggle(false);
 	};
 
+	const setFavourite = (id) => {
+		console.log(id);
+	};
+
 	return (
 		<DataContext.Provider
 			value={{
@@ -33,6 +38,7 @@ export const DataProvider = ({ children }) => {
 				linkID,
 				setLinkID,
 				click,
+				setFavourite,
 			}}>
 			{children}
 		</DataContext.Provider>
