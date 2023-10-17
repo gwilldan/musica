@@ -3,11 +3,12 @@ import { Display, TopCharts } from "../components";
 
 const Home = () => {
 	return (
-		<div className="">
+		<div className=" ">
 			<main className=" lg:flex lg:gap-10">
 				<Display />
 				<TopCharts />
 			</main>
+			<div className="h-screen">hello</div>
 		</div>
 	);
 };
