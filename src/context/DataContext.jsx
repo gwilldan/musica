@@ -8,7 +8,7 @@ export const DataProvider = ({ children }) => {
 	const navigate = useNavigate();
 	const [favouritePlaylist, setFavouritePlaylist] = useState(
 		localStorage.getItem("favouritePlaylist")
-			? localStorage.getItem("favouritePlaylist")
+			? JSON.parse(localStorage.getItem("favouritePlaylist"))
 			: []
 	);
 	const [favToggle, setFavToggle] = useState(false);
@@ -19,7 +19,10 @@ export const DataProvider = ({ children }) => {
 	);
 
 	useEffect(() => {
-		localStorage.setItem("favouritePlaylist", favouritePlaylist);
+		localStorage.setItem(
+			"favouritePlaylist",
+			JSON.stringify(favouritePlaylist)
+		);
 	}, [favouritePlaylist]);
 
 	// use Effect for making turning off scroll on mobile nav coming on
