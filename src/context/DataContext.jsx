@@ -11,6 +11,9 @@ export const DataProvider = ({ children }) => {
 			? JSON.parse(localStorage.getItem("favouritePlaylist"))
 			: []
 	);
+	const [shuffleToggle, setShuffleToggle] = useState(false);
+	const [repeatToggle, setRepeatToggle] = useState(false);
+	const [playing, setPlaying] = useState({});
 	const [favToggle, setFavToggle] = useState(false);
 	const [favPlayName, setFavPlayName] = useState([]);
 	const [toggle, setToggle] = useState(false);
@@ -50,6 +53,13 @@ export const DataProvider = ({ children }) => {
 		}
 	};
 
+	const shuffle = () => {
+		setShuffleToggle(!shuffleToggle);
+	};
+	const repeat = () => {
+		setRepeatToggle(!repeatToggle);
+	};
+
 	return (
 		<DataContext.Provider
 			value={{
@@ -62,6 +72,10 @@ export const DataProvider = ({ children }) => {
 				favToggle,
 				favPlayName,
 				favouritePlaylist,
+				shuffle,
+				shuffleToggle,
+				repeat,
+				repeatToggle,
 			}}>
 			{children}
 		</DataContext.Provider>

@@ -3,6 +3,7 @@ import { TopPlaylist } from "./constants/TopPlaylist";
 import { AiFillHeart } from "react-icons/ai";
 import { useContext } from "react";
 import DataContext from "../context/DataContext";
+import { Link } from "react-router-dom";
 
 const TopCharts = () => {
 	const { setFavourite, favouritePlaylist, favPlayName } =
@@ -20,15 +21,18 @@ const TopCharts = () => {
 							key={index}
 							className=" w-[270px] h-[240px] bg-dimDark flex-shrink-0 lg:flex-shrink rounded-3xl p-4 lg:w-full lg:h-[96px] grid grid-cols-[70%, 30%] lg:grid-cols-[80px_auto_auto]  grid-rows-[115px] lg:grid-rows-none">
 							<img
+								type="button"
 								src={i.img}
 								alt="mix"
-								className=" h-[108px] w-[108px] rounded-xl lg:h-[64px] lg:w-[64px]"
+								className=" h-[108px] w-[108px] rounded-xl lg:h-[64px] lg:w-[64px] lg:cursor-pointer"
 							/>
-							<section className=" flex flex-col lg:justify-between">
+							<Link
+								onClick={() => console.log("clicked")}
+								className=" cursor-none lg:cursor-pointer flex flex-col lg:justify-between w-fit ">
 								<h1 className=" font-bold">{i.name}</h1>
 								<p className=" text-sm flex-1 lg:flex-none">{i.artist}</p>
 								<p className=" font-bold text-sm -end ">{i.time}</p>
-							</section>
+							</Link>
 							<section className=" col-start-2 row-start-1 flex justify-end lg:col-start-3">
 								<div
 									type="button"
