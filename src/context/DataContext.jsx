@@ -6,16 +6,20 @@ const DataContext = createContext({});
 
 export const DataProvider = ({ children }) => {
 	const navigate = useNavigate();
-	const [favouritePlaylist, setFavouritePlaylist] = useState([]);
+	const [favouritePlaylist, setFavouritePlaylist] = useState(
+		localStorage.getItem("favouritePlaylist")
+			? localStorage.getItem("favouritePlaylist")
+			: []
+	);
 	const [favToggle, setFavToggle] = useState(false);
-	const [favPlayName, setFavPlayName] = useState();
+	const [favPlayName, setFavPlayName] = useState([]);
 	const [toggle, setToggle] = useState(false);
 	const [linkID, setLinkID] = useState(
 		sessionStorage.getItem("idData") ? sessionStorage.getItem("idData") : 1
 	);
 
 	useEffect(() => {
-		// console.log(localStorage.getItem("favouritePlaylist"));
+		localStorage.setItem("favouritePlaylist", favouritePlaylist);
 	}, [favouritePlaylist]);
 
 	// use Effect for making turning off scroll on mobile nav coming on
@@ -24,11 +28,6 @@ export const DataProvider = ({ children }) => {
 			? (document.body.style.overflow = "hidden")
 			: (document.body.style.overflow = "auto");
 	}, [toggle]);
-
-	useEffect(() => {
-		localStorage.setItem("favouritePlaylist", favouritePlaylist);
-		console.log(favouritePlaylist);
-	}, [favouritePlaylist]);
 
 	const click = (id, url) => {
 		navigate(url);

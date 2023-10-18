@@ -22,7 +22,7 @@ const TopCharts = () => {
 							<img
 								src={i.img}
 								alt="mix"
-								className=" h-[108px] w-[108px] rounded-xl"
+								className=" h-[108px] w-[108px] rounded-xl lg:h-[64px] lg:w-[64px]"
 							/>
 							<section className=" flex flex-col">
 								<h1 className=" font-bold">{i.name}</h1>
