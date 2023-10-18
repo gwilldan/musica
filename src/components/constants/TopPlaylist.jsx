@@ -2,7 +2,7 @@ import mixOne from "../../assets/mixOne.jpg";
 import mixTwo from "../../assets/mixTwo.jpg";
 import mixThree from "../../assets/mixThree.jpg";
 
-export const TopMix = [
+export const TopPlaylist = [
 	{
 		id: 1,
 		name: "Trending R & B",
