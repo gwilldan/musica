@@ -8,7 +8,7 @@ import { ImHeart } from "react-icons/im";
 const Display = () => {
 	const {} = useContext(DataContext);
 	return (
-		<main className=" h-[505px] lg:h-[373px] w-full lg:w-[80%] bg-mainGreen lg:max-w-[820px] rounded-[40px] text-mainWhite font-medium px-[34px] py-[36px] relative overflow-hidden">
+		<main className=" h-[505px] lg:h-[373px] w-full lg:w-[80%] bg-mainGreen lg:max-w-[785px] rounded-[40px] text-mainWhite font-medium px-[34px] py-[36px] relative overflow-hidden">
 			<img
 				src={vector}
 				className="h-[200px] absolute top-[-50px] right-[-80px] rotate-90"

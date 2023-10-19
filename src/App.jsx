@@ -7,7 +7,7 @@ function App() {
 	return (
 		<Router>
 			<DataProvider>
-				<div className=" w-[90%] lg:w-[97%] lg:max-w-[1400px] no-scrollbar mx-auto">
+				<div className=" w-[90%] lg:w-[97%] lg:max-w-[1200px] no-scrollbar mx-auto">
 					<Header />
 					<main className=" lg:flex gap-5">
 						<MainNav />

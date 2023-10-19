@@ -52,7 +52,7 @@ const Footer = () => {
 				<PiRepeatOnce
 					className={`${
 						repeatToggle && "text-mainYellow"
-					} md:cursor-pointer hidden md:block md:hover:scale-125 md:hover:ease-in-out duration-200`}
+					} md:cursor-pointer hidden md:block md:hover:scale-125 md:hover:ease-in-out duration-200 `}
 					type="button"
 					onClick={repeat}
 				/>
