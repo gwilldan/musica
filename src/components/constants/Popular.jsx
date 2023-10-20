@@ -1,9 +1,9 @@
 import pop1 from "../../assets/popOne.jpg";
 import pop2 from "../../assets/popTwo.jpg";
-import pop3 from "../../assets/pop3.jpg";
-import pop4 from "../../assets/pop4.jpg";
-import pop5 from "../../assets/pop5.jpg";
-import pop6 from "../../assets/pop6.jpg";
+import pop3 from "../../assets/popThree.jpg";
+import pop4 from "../../assets/popFour.jpg";
+import pop5 from "../../assets/popFive.jpg";
+import pop6 from "../../assets/popSix.jpg";
 
 export const popular = [
 	{
