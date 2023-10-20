@@ -1,5 +1,6 @@
 import React from "react";
-import { Display, TopCharts } from "../components";
+import { Carousel, Display, TopCharts } from "../components";
+import { popular } from "../components/constants/Popular";
 
 const Home = () => {
 	return (
@@ -8,7 +9,16 @@ const Home = () => {
 				<Display />
 				<TopCharts />
 			</main>
-			<div className="h-screen">hello</div>
+			<section className=" mt-10 mb-[100px] lg:mb-[150px] flex flex-col gap-6">
+				<Carousel
+					title="New Releases"
+					popular={popular}
+				/>
+				<Carousel
+					title="Popular in your area"
+					popular={popular}
+				/>
+			</section>
 		</div>
 	);
 };
