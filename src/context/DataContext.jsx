@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { newReleases } from "../components/constants/NewReleases";
 
 const DataContext = createContext({});
 
@@ -13,7 +14,11 @@ export const DataProvider = ({ children }) => {
 	);
 	const [shuffleToggle, setShuffleToggle] = useState(false);
 	const [repeatToggle, setRepeatToggle] = useState(false);
-	const [playing, setPlaying] = useState([]);
+	const [playing, setPlaying] = useState(
+		localStorage.getItem("playing")
+			? JSON.parse(localStorage.getItem("playing"))
+			: newReleases[0]
+	);
 	const [favToggle, setFavToggle] = useState(false);
 	const [favPlayName, setFavPlayName] = useState([]);
 	const [toggle, setToggle] = useState(false);
@@ -35,6 +40,11 @@ export const DataProvider = ({ children }) => {
 			? (document.body.style.overflow = "hidden")
 			: (document.body.style.overflow = "auto");
 	}, [toggle]);
+
+	// use Effect for updating playlist to local storage localstorage
+	useEffect(() => {
+		localStorage.setItem("playing", JSON.stringify(playing));
+	}, [playing]);
 
 	const click = (id, url) => {
 		navigate(url);
@@ -70,7 +80,7 @@ export const DataProvider = ({ children }) => {
 	};
 
 	const play = (song, playlist) => {
-		console.log(song, playlist);
+		const play = playlist.map((i) => i.name == song && setPlaying(i));
 	};
 
 	return (

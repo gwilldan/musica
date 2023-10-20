@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import img2 from "../assets/imgTwo.jpeg";
 import {
 	TbPlayerSkipForwardFilled,
 	TbPlayerSkipBackFilled,
@@ -16,24 +15,24 @@ const Footer = () => {
 
 	return (
 		<footer className=" h-[85px] lg:h-[115px] fixed bottom-0 w-full  backdrop-blur-lg py-4 px-6 bg-[rgba(29,33,35,0.3)] border-t border-white/[0.1]">
-			<div className=" h-full lg:max-w-[1200px] mx-auto flex items-center justify-between">
+			<div className=" h-full lg:max-w-[1200px] mx-auto grid grid-cols-2 lg:grid-cols-[20%_60%_20%] items-center justify-between">
 				{/* SONG INFORMATION */}
 				<section className=" flex ">
 					<img
-						src={img2}
+						src={playing.img}
 						alt="play"
 						className="h-[53px] w-[53px] md:h-12 md:w-12 rounded-2xl mr-3"
 					/>
 					<div className=" flex flex-col justify-center gap-1">
-						<h2 className=" font-semibold text-sm">Bandana</h2>
+						<h2 className=" font-semibold text-sm">{playing.name}</h2>
 						<p className=" text-[10px] text-dimWhite font-semibold">
-							Fireboy DML & Asake
+							{playing.artist}
 						</p>
 					</div>
 				</section>
 
 				{/* SONG CONTROLS */}
-				<section className=" flex-1 lg:flex lg:flex-col lg:items-center lg:justify-center lg:gap-6 lg:h-full">
+				<section className=" w-full lg:flex lg:flex-col lg:items-center lg:justify-center lg:gap-6 lg:h-full">
 					<div className=" flex items-center justify-end gap-7 lg:gap-11">
 						<TbArrowsShuffle
 							className={`${

@@ -20,7 +20,7 @@ const Carousel = ({ title, popular }) => {
 						<img
 							src={i.img}
 							alt="img"
-							className=" h-[153px] w-[153px] rounded-3xl group-hover:opacity-60"
+							className=" h-[153px] w-[153px] rounded-3xl group-active:opacity-60 lg:group-hover:opacity-60"
 						/>
 						<p className=" text-[12px] font-semibold my-1">{i.name}</p>
 						<p className=" text-[12px] font-semibold">{i.artist}</p>
