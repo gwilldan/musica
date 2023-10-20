@@ -1,6 +1,7 @@
 import React from "react";
 import { Carousel, Display, TopCharts } from "../components";
 import { popular } from "../components/constants/Popular";
+import { newReleases } from "../components/constants/newReleases";
 
 const Home = () => {
 	return (
@@ -12,7 +13,7 @@ const Home = () => {
 			<section className=" mt-10 mb-[100px] lg:mb-[150px] flex flex-col gap-6">
 				<Carousel
 					title="New Releases"
-					popular={popular}
+					popular={newReleases}
 				/>
 				<Carousel
 					title="Popular in your area"

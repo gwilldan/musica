@@ -11,7 +11,7 @@ import { HiPlay } from "react-icons/hi2";
 import DataContext from "../context/DataContext";
 
 const Footer = () => {
-	const { repeatToggle, shuffleToggle, repeat, shuffle } =
+	const { repeatToggle, shuffleToggle, repeat, shuffle, playing } =
 		useContext(DataContext);
 
 	return (

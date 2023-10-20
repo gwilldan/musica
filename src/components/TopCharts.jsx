@@ -19,12 +19,12 @@ const TopCharts = () => {
 					{TopPlaylist.map((i, index) => (
 						<li
 							key={index}
-							className=" w-[270px] h-[240px] bg-dimDark flex-shrink-0 lg:flex-shrink rounded-3xl p-4 lg:w-full lg:h-[96px] grid grid-cols-[70%, 30%] lg:grid-cols-[80px_auto_auto]  grid-rows-[115px] lg:grid-rows-none">
+							className=" w-[270px] h-[240px] bg-dimDark flex-shrink-0 lg:flex-shrink rounded-3xl p-4 lg:w-full lg:h-[96px] grid grid-cols-[70%, 30%] lg:grid-cols-[80px_auto_auto]  grid-rows-[115px] lg:grid-rows-none group">
 							<img
 								type="button"
 								src={i.img}
 								alt="mix"
-								className=" h-[108px] w-[108px] rounded-xl lg:h-[64px] lg:w-[64px] lg:cursor-pointer"
+								className=" h-[108px] w-[108px] rounded-xl lg:h-[64px] lg:w-[64px] lg:cursor-pointer lg:group-hover:opacity-60 group-active:opacity-60"
 							/>
 							<Link
 								onClick={() => console.log("clicked")}

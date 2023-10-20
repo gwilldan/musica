@@ -13,13 +13,14 @@ export const DataProvider = ({ children }) => {
 	);
 	const [shuffleToggle, setShuffleToggle] = useState(false);
 	const [repeatToggle, setRepeatToggle] = useState(false);
-	const [playing, setPlaying] = useState({});
+	const [playing, setPlaying] = useState([]);
 	const [favToggle, setFavToggle] = useState(false);
 	const [favPlayName, setFavPlayName] = useState([]);
 	const [toggle, setToggle] = useState(false);
 	const [linkID, setLinkID] = useState(
 		sessionStorage.getItem("idData") ? sessionStorage.getItem("idData") : 1
 	);
+	// const [] = useState([])
 
 	useEffect(() => {
 		localStorage.setItem(
@@ -60,6 +61,18 @@ export const DataProvider = ({ children }) => {
 		setRepeatToggle(!repeatToggle);
 	};
 
+	const next = () => {
+		// setRepeatToggle(!repeatToggle);
+	};
+
+	const prev = () => {
+		// setRepeatToggle(!repeatToggle);
+	};
+
+	const play = (song, playlist) => {
+		console.log(song, playlist);
+	};
+
 	return (
 		<DataContext.Provider
 			value={{
@@ -76,6 +89,10 @@ export const DataProvider = ({ children }) => {
 				shuffleToggle,
 				repeat,
 				repeatToggle,
+				next,
+				prev,
+				playing,
+				play,
 			}}>
 			{children}
 		</DataContext.Provider>

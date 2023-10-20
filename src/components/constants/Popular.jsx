@@ -23,23 +23,23 @@ export const popular = [
 	},
 	{
 		img: pop4,
-		name: "Cough (Odo)",
-		artist: "EMPIRE & Kizz Daniel",
+		name: "Oh Paradise",
+		artist: "Black Sheriff",
 	},
 	{
 		img: pop5,
-		name: "Cough (Odo)",
-		artist: "EMPIRE & Kizz Daniel",
+		name: "Philo",
+		artist: "Bella Shmurda & Omah Lay",
 	},
 	{
 		img: pop6,
-		name: "Cough (Odo)",
-		artist: "EMPIRE & Kizz Daniel",
+		name: "Soweto",
+		artist: "Victony & Tempoe",
 	},
 	{
 		img: pop4,
-		name: "Cough (Odo)",
-		artist: "EMPIRE & Kizz Daniel",
+		name: "Afro the influence",
+		artist: "Lotus Beatz",
 	},
 	{
 		img: pop5,
@@ -48,7 +48,7 @@ export const popular = [
 	},
 	{
 		img: pop6,
-		name: "Cough (Odo)",
-		artist: "EMPIRE & Kizz Daniel",
+		name: "Back in Uni",
+		artist: "Blaqbones & JAE5",
 	},
 ];
