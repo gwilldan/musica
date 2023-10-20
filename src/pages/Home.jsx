@@ -1,7 +1,7 @@
 import React from "react";
 import { Carousel, Display, TopCharts } from "../components";
 import { popular } from "../components/constants/Popular";
-import { newReleases } from "../components/constants/newReleases";
+import { newReleases } from "../components/constants/NewReleases";
 
 const Home = () => {
 	return (
