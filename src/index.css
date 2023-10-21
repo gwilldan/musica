@@ -13,6 +13,9 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-text-size-adjust: 100%;
+
+	--dim-white: rgba(255, 255, 255, 0.25);
+	--dim-yellow: rgb(250, 205, 102);
 }
 
 @tailwind base;

@@ -8,6 +8,7 @@ import { PiRepeatOnce } from "react-icons/pi";
 import { BiSolidVolumeFull } from "react-icons/bi";
 import { HiPlay } from "react-icons/hi2";
 import DataContext from "../context/DataContext";
+import "./footer.css";
 
 const Footer = () => {
 	const { repeatToggle, shuffleToggle, repeat, shuffle, playing } =
@@ -76,15 +77,16 @@ const Footer = () => {
 				</section>
 
 				{/* VOLUME */}
-				<section className=" hidden lg:flex items-center gap-3">
+				<section className=" hidden lg:flex items-center justify-start gap-3">
 					<BiSolidVolumeFull className=" text-white text-2xl" />
-					<div
-						typeof="button"
-						className=" lg:cursor-pointer h-1 w-[250px] rounded-l-full rounded-r-full bg-dimWhite ">
-						<div
-							typeof="button"
-							className=" lg:cursor-pointer h-1 w-[50%] rounded-l-full rounded-r-full bg-mainYellow "></div>
-					</div>
+					<input
+						id="volume"
+						type="range"
+						min="0"
+						max="100"
+						step="1"
+						onInput={(event) => console.log(event.target.value)}
+					/>
 				</section>
 			</div>
 		</footer>
