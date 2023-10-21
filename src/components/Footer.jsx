@@ -8,7 +8,7 @@ import { PiRepeatOnce } from "react-icons/pi";
 import { BiSolidVolumeFull } from "react-icons/bi";
 import { HiPlay } from "react-icons/hi2";
 import DataContext from "../context/DataContext";
-import "./footer.css";
+import "./Footer.css";
 
 const Footer = () => {
 	const { repeatToggle, shuffleToggle, repeat, shuffle, playing } =
