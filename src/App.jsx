@@ -17,6 +17,30 @@ function App() {
 									element={<Home />}
 									path="/"
 								/>
+								<Route
+									element={<Collection />}
+									path="/collection"
+								/>
+								<Route
+									element={<Collection />}
+									path="/collection"
+								/>
+								<Route
+									element={<Collection />}
+									path="/collection"
+								/>
+								<Route
+									element={<Collection />}
+									path="/collection"
+								/>
+								<Route
+									element={<Collection />}
+									path="/collection"
+								/>
+								<Route
+									element={<Collection />}
+									path="*"
+								/>
 							</Routes>
 						</section>
 					</main>

@@ -63,7 +63,7 @@ const Footer = () => {
 							onClick={repeat}
 						/>
 					</div>
-					<div
+					{/* <div
 						typeof="button"
 						className=" hidden lg:block lg:cursor-pointer h-1 w-[80%] rounded-l-full rounded-r-full bg-dimWhite ">
 						<div
@@ -73,7 +73,17 @@ const Footer = () => {
 								<div className=" bg-mainYellow rounded-full h-2 w-2"></div>
 							</div>
 						</div>
-					</div>
+					</div> */}
+
+					<input
+						id="song"
+						type="range"
+						className="hidden lg:block lg:cursor-pointer "
+						min="0"
+						max="100"
+						step="1"
+						onInput={(event) => console.log("the song", event.target.value)}
+					/>
 				</section>
 
 				{/* VOLUME */}
