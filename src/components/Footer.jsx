@@ -20,11 +20,19 @@ const Footer = () => {
 		playing,
 		audioRef,
 		playPauseToggle,
+		setAudioLength,
+		songTimeDisplay,
+		alterTime,
 	} = useContext(DataContext);
 
 	return (
 		<footer className=" h-[85px] lg:h-[115px] fixed bottom-0 w-full  backdrop-blur-lg py-4 px-6 bg-[rgba(29,33,35,0.3)] border-t border-white/[0.1]">
 			<audio
+				onTimeUpdate={(e) =>
+					setAudioLength(
+						Math.floor((e.target.currentTime / e.target.duration) * 100)
+					)
+				}
 				src={playing.audio}
 				ref={audioRef}
 			/>
@@ -87,7 +95,8 @@ const Footer = () => {
 						min="0"
 						max="100"
 						step="1"
-						onInput={(event) => console.log("the song", event.target.value)}
+						value={songTimeDisplay ? songTimeDisplay : 0}
+						onChange={(e) => alterTime(e.target.value)}
 					/>
 				</section>
 

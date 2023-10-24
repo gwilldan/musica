@@ -20,9 +20,11 @@ export const DataProvider = ({ children }) => {
 			: newReleases[0]
 	);
 	const [playPauseToggle, setPlayPauseToggle] = useState(false);
+	const [songTimeDisplay, setSongTimeDisplay] = useState(0);
 	const [favToggle, setFavToggle] = useState(false);
 	const [favPlayName, setFavPlayName] = useState([]);
 	const [toggle, setToggle] = useState(false);
+	const [audioLength, setAudioLength] = useState(0);
 	const [linkID, setLinkID] = useState(
 		sessionStorage.getItem("idData") ? sessionStorage.getItem("idData") : 1
 	);
@@ -57,6 +59,12 @@ export const DataProvider = ({ children }) => {
 			audioRef.current.pause();
 		}
 	}, [playPauseToggle, playing]);
+
+	// useEffect for displaying duration on duration range
+	useEffect(() => {
+		setSongTimeDisplay(audioLength);
+		console.log(audioLength, typeof audioLength);
+	}, [audioLength]);
 
 	const click = (id, url) => {
 		navigate(url);
@@ -100,7 +108,11 @@ export const DataProvider = ({ children }) => {
 		setPlayPauseToggle(!playPauseToggle);
 	};
 
-	console.log(playing);
+	const alterTime = (event) => {
+		console.log((event * 100) / audioRef.current.duration);
+		setSongTimeDisplay(event);
+		audioRef.current.currentTime = (event * 100) / audioRef.current.duration;
+	};
 
 	return (
 		<DataContext.Provider
@@ -125,6 +137,9 @@ export const DataProvider = ({ children }) => {
 				playPause,
 				audioRef,
 				playPauseToggle,
+				setAudioLength,
+				songTimeDisplay,
+				alterTime,
 			}}>
 			{children}
 		</DataContext.Provider>
