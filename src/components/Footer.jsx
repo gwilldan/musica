@@ -6,16 +6,28 @@ import {
 } from "react-icons/tb";
 import { PiRepeatOnce } from "react-icons/pi";
 import { BiSolidVolumeFull } from "react-icons/bi";
-import { HiPlay } from "react-icons/hi2";
+import { HiPlay, HiPause } from "react-icons/hi2";
 import DataContext from "../context/DataContext";
 import "./Footer.css";
 
 const Footer = () => {
-	const { repeatToggle, shuffleToggle, repeat, shuffle, playing } =
-		useContext(DataContext);
+	const {
+		repeatToggle,
+		shuffleToggle,
+		repeat,
+		playPause,
+		shuffle,
+		playing,
+		audioRef,
+		playPauseToggle,
+	} = useContext(DataContext);
 
 	return (
 		<footer className=" h-[85px] lg:h-[115px] fixed bottom-0 w-full  backdrop-blur-lg py-4 px-6 bg-[rgba(29,33,35,0.3)] border-t border-white/[0.1]">
+			<audio
+				src={playing.audio}
+				ref={audioRef}
+			/>
 			<div className=" h-full lg:max-w-[1200px] mx-auto grid grid-cols-2 lg:grid-cols-[20%_60%_20%] items-center justify-between">
 				{/* SONG INFORMATION */}
 				<section className=" flex ">
@@ -48,8 +60,13 @@ const Footer = () => {
 						/>
 						<div
 							type="button"
+							onClick={playPause}
 							className="h-[25px] w-[25px] bg-mainYellow text-white rounded-full grid place-content-center text-center md:hover:scale-110 md:cursor-pointer md:hover:ease-in-out duration-200">
-							<HiPlay className=" ml-[2px]" />
+							{playPauseToggle ? (
+								<HiPause className="" />
+							) : (
+								<HiPlay className=" ml-[2px]" />
+							)}
 						</div>
 						<TbPlayerSkipForwardFilled
 							className={`md:cursor-pointer md:hover:scale-125 md:hover:ease-in-out duration-200 `}
@@ -63,18 +80,6 @@ const Footer = () => {
 							onClick={repeat}
 						/>
 					</div>
-					{/* <div
-						typeof="button"
-						className=" hidden lg:block lg:cursor-pointer h-1 w-[80%] rounded-l-full rounded-r-full bg-dimWhite ">
-						<div
-							typeof="button"
-							className=" lg:cursor-pointer h-1 w-[50%] rounded-l-full rounded-r-full bg-mainYellow flex justify-end items-center ">
-							<div className=" h-4 w-4 border rounded-full grid place-content-center mr-[-8px] ">
-								<div className=" bg-mainYellow rounded-full h-2 w-2"></div>
-							</div>
-						</div>
-					</div> */}
-
 					<input
 						id="song"
 						type="range"

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { newReleases } from "../components/constants/NewReleases";
@@ -19,6 +19,7 @@ export const DataProvider = ({ children }) => {
 			? JSON.parse(localStorage.getItem("playing"))
 			: newReleases[0]
 	);
+	const [playPauseToggle, setPlayPauseToggle] = useState(false);
 	const [favToggle, setFavToggle] = useState(false);
 	const [favPlayName, setFavPlayName] = useState([]);
 	const [toggle, setToggle] = useState(false);
@@ -26,6 +27,8 @@ export const DataProvider = ({ children }) => {
 		sessionStorage.getItem("idData") ? sessionStorage.getItem("idData") : 1
 	);
 	// const [] = useState([])
+
+	const audioRef = useRef();
 
 	useEffect(() => {
 		localStorage.setItem(
@@ -45,6 +48,15 @@ export const DataProvider = ({ children }) => {
 	useEffect(() => {
 		localStorage.setItem("playing", JSON.stringify(playing));
 	}, [playing]);
+
+	// USE Effect for playing current song
+	useEffect(() => {
+		if (playPauseToggle) {
+			audioRef.current.play();
+		} else {
+			audioRef.current.pause();
+		}
+	}, [playPauseToggle, playing]);
 
 	const click = (id, url) => {
 		navigate(url);
@@ -79,9 +91,16 @@ export const DataProvider = ({ children }) => {
 		// setRepeatToggle(!repeatToggle);
 	};
 
-	const play = (song, playlist) => {
+	const setPlay = (song, playlist) => {
 		const play = playlist.map((i) => i.name == song && setPlaying(i));
+		setPlayPauseToggle(true);
 	};
+
+	const playPause = () => {
+		setPlayPauseToggle(!playPauseToggle);
+	};
+
+	console.log(playing);
 
 	return (
 		<DataContext.Provider
@@ -102,7 +121,10 @@ export const DataProvider = ({ children }) => {
 				next,
 				prev,
 				playing,
-				play,
+				setPlay,
+				playPause,
+				audioRef,
+				playPauseToggle,
 			}}>
 			{children}
 		</DataContext.Provider>

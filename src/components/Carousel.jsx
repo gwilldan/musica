@@ -3,7 +3,7 @@ import { useContext } from "react";
 import DataContext from "../context/DataContext";
 
 const Carousel = ({ title, popular }) => {
-	const { play } = useContext(DataContext);
+	const { setPlay } = useContext(DataContext);
 
 	return (
 		<div className=" w-full">
@@ -15,7 +15,7 @@ const Carousel = ({ title, popular }) => {
 				{popular.map((i, index) => (
 					<button
 						key={index}
-						onClick={() => play(i.name, popular)}
+						onClick={() => setPlay(i.name, popular)}
 						className="flex-shrink-0 cursor-none lg:cursor-pointer text-left group h-[210px] flex flex-col justify-start">
 						<img
 							src={i.img}
