@@ -5,7 +5,7 @@ import {
 	TbArrowsShuffle,
 } from "react-icons/tb";
 import { PiRepeatOnce } from "react-icons/pi";
-import { BiSolidVolumeFull } from "react-icons/bi";
+import { BiSolidVolumeFull, BiSolidVolumeMute } from "react-icons/bi";
 import { HiPlay, HiPause } from "react-icons/hi2";
 import DataContext from "../context/DataContext";
 import "./Footer.css";
@@ -13,8 +13,8 @@ import "./Footer.css";
 const Footer = () => {
 	const {
 		repeatToggle,
+		setRepeatToggle,
 		shuffleToggle,
-		repeat,
 		playPause,
 		shuffle,
 		playing,
@@ -23,6 +23,9 @@ const Footer = () => {
 		setAudioLength,
 		songTimeDisplay,
 		alterTime,
+		muteUnmute,
+		setMuteUnmute,
+		handleVolume,
 	} = useContext(DataContext);
 
 	return (
@@ -85,7 +88,7 @@ const Footer = () => {
 								repeatToggle && "text-mainYellow"
 							} md:cursor-pointer hidden md:block md:hover:scale-125 md:hover:ease-in-out duration-200 `}
 							type="button"
-							onClick={repeat}
+							onClick={() => setRepeatToggle(!repeatToggle)}
 						/>
 					</div>
 					<input
@@ -102,14 +105,26 @@ const Footer = () => {
 
 				{/* VOLUME */}
 				<section className=" hidden lg:flex items-center justify-start gap-3">
-					<BiSolidVolumeFull className=" text-white text-2xl" />
+					{muteUnmute ? (
+						<BiSolidVolumeFull
+							type="button"
+							className=" lg:cursor-pointer text-white text-2xl"
+							onClick={() => setMuteUnmute(false)}
+						/>
+					) : (
+						<BiSolidVolumeMute
+							className=" lg:cursor-pointer text-white text-2xl"
+							type="button"
+							onClick={() => setMuteUnmute(true)}
+						/>
+					)}
 					<input
 						id="volume"
 						type="range"
 						min="0"
 						max="100"
 						step="1"
-						onInput={(event) => console.log(event.target.value)}
+						onInput={(event) => handleVolume(event.target.value)}
 					/>
 				</section>
 			</div>

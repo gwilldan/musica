@@ -25,6 +25,8 @@ export const DataProvider = ({ children }) => {
 	const [favPlayName, setFavPlayName] = useState([]);
 	const [toggle, setToggle] = useState(false);
 	const [audioLength, setAudioLength] = useState(0);
+	const [muteUnmute, setMuteUnmute] = useState(true);
+	const [loop, setLoop] = useState(false);
 	const [linkID, setLinkID] = useState(
 		sessionStorage.getItem("idData") ? sessionStorage.getItem("idData") : 1
 	);
@@ -63,8 +65,17 @@ export const DataProvider = ({ children }) => {
 	// useEffect for displaying duration on duration range
 	useEffect(() => {
 		setSongTimeDisplay(audioLength);
-		console.log(audioLength, typeof audioLength);
 	}, [audioLength]);
+
+	// muting and unmuting useEffect
+	useEffect(() => {
+		audioRef.current.muted = muteUnmute ? false : true;
+	}, [muteUnmute]);
+
+	// for repeats
+	useEffect(() => {
+		audioRef.current.loop = repeatToggle ? true : false;
+	}, [repeatToggle]);
 
 	const click = (id, url) => {
 		navigate(url);
@@ -87,9 +98,6 @@ export const DataProvider = ({ children }) => {
 	const shuffle = () => {
 		setShuffleToggle(!shuffleToggle);
 	};
-	const repeat = () => {
-		setRepeatToggle(!repeatToggle);
-	};
 
 	const next = () => {
 		// setRepeatToggle(!repeatToggle);
@@ -108,10 +116,13 @@ export const DataProvider = ({ children }) => {
 		setPlayPauseToggle(!playPauseToggle);
 	};
 
+	// FUNCTION TO PLAY A PARTICULAR PLACE IN THE SONG.
 	const alterTime = (event) => {
-		console.log((event * 100) / audioRef.current.duration);
-		setSongTimeDisplay(event);
-		audioRef.current.currentTime = (event * 100) / audioRef.current.duration;
+		audioRef.current.currentTime = (event / 100) * audioRef.current.duration;
+	};
+
+	const handleVolume = (event) => {
+		audioRef.current.volume = event / 100;
 	};
 
 	return (
@@ -128,8 +139,8 @@ export const DataProvider = ({ children }) => {
 				favouritePlaylist,
 				shuffle,
 				shuffleToggle,
-				repeat,
 				repeatToggle,
+				setRepeatToggle,
 				next,
 				prev,
 				playing,
@@ -140,6 +151,9 @@ export const DataProvider = ({ children }) => {
 				setAudioLength,
 				songTimeDisplay,
 				alterTime,
+				muteUnmute,
+				setMuteUnmute,
+				handleVolume,
 			}}>
 			{children}
 		</DataContext.Provider>
