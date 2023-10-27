@@ -26,7 +26,6 @@ export const DataProvider = ({ children }) => {
 	const [toggle, setToggle] = useState(false);
 	const [audioLength, setAudioLength] = useState(0);
 	const [muteUnmute, setMuteUnmute] = useState(true);
-	const [loop, setLoop] = useState(false);
 	const [linkID, setLinkID] = useState(
 		sessionStorage.getItem("idData") ? sessionStorage.getItem("idData") : 1
 	);
