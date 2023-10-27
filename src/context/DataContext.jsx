@@ -42,9 +42,7 @@ export const DataProvider = ({ children }) => {
 
 	// use Effect for making turning off scroll on mobile nav coming on
 	useEffect(() => {
-		toggle
-			? (document.body.style.overflow = "hidden")
-			: (document.body.style.overflow = "auto");
+		document.body.style.overflow = toggle ? "hidden" : "auto";
 	}, [toggle]);
 
 	// use Effect for updating playlist to local storage localstorage
